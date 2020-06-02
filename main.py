@@ -31,11 +31,6 @@ if __name__=='__main__':
     pygame.init()
     main = True # flag to control program exit without breaks or exits
 
-    BLUE  = (25,25,200)
-    BLACK = (23,23,23 )
-    WHITE = (254,254,254)
-    ALPHA = (0,255,0)
-
     screen = pygame.display.set_mode([SCREENX,SCREENY])
     backdrop = pygame.image.load(BACKGROUND_PATH).convert()
     mushroom = pygame.image.load(MUSHROOM_PATH).convert()
