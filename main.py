@@ -44,7 +44,7 @@ if __name__=='__main__':
 
     #Main loop
     menuY = firstMenuY
-    refresh = False
+    refresh = True
     while main == True:
 
         #manage events
@@ -77,10 +77,10 @@ if __name__=='__main__':
         if refresh:
             logger.debug("refresh backdrop!")
             backdrop = pygame.image.load(BACKGROUND_PATH).convert() #refresh with background image
+            backdrop.blit(mushroom,(menuX,menuY))
             refresh = False
 
         #draw part
-        backdrop.blit(mushroom,(menuX,menuY))
         screen.blit(backdrop, backScreen)
         pygame.display.flip()
         clock.tick(fps)
