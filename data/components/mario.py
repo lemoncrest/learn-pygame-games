@@ -179,7 +179,7 @@ class Mario(pg.sprite.Sprite):
     def jumping(self, keys, current_time):
         self.frame_index = 4
         self.y_vel += self.gravity
-        if (self.rect.bottom > (600 - self.rect.height)):
+        if (self.rect.bottom > (SCREEN_HEIGHT - GROUND_HEIGHT)):
             self.y_vel = 0
             self.state = WALK
 
