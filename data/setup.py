@@ -1,7 +1,7 @@
 import os
 import pygame as pg
 from data import tools
-from constants import *
+from data.constants import *
 
 ORIGINAL_CAPTION = ORIGINAL_CAPTION
 
