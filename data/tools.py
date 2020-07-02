@@ -1,6 +1,6 @@
 import os
 import pygame as pg
-from constants import *
+from data.constants import *
 
 """
 Control class for entire project. Contains the game loop, and contains
