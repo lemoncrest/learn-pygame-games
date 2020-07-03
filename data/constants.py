@@ -5,6 +5,8 @@ SCREEN_WIDTH = 800
 
 SCREEN_SIZE = (SCREEN_WIDTH,SCREEN_HEIGHT)
 
+FPS = 60
+
 ORIGINAL_CAPTION = "Lesson 02"
 
 BACKGROUND_PATH = os.path.join('resources/images','background.png')
@@ -35,9 +37,15 @@ BACKGROUND_BLUE = (106, 150, 252)
 BGCOLOR = BACKGROUND_BLUE
 
 SIZE_MULTIPLIER = 2.5
-BACK_SIZE_MULTIPLER = 2.67 #depends on first_level.png quality
-GROUND_HEIGHT = 63
+BACK_SIZE_MULTIPLER = 2.679 #depends on first_level.png quality
+GROUND_HEIGHT = SCREEN_HEIGHT - 63
 GRAVITY = .4
+JUMP_GRAVITY = .4
+
+SMALL_ACCEL = .2
+SMALL_TURNAROUND = .35
+
+JUMP_VEL = -8
 
 #Mario States
 

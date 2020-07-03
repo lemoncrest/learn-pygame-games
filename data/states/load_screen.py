@@ -8,7 +8,7 @@ class Load_Screen(tools._State):
         tools._State.__init__(self)
 
     def startup(self, current_time, persistant):
-        self.next = "LEVEL1"
+        self.next = "FIRST_LEVEL"
         self.surface = pg.Surface(SCREEN_SIZE)
         self.rect = self.surface.get_rect()
         text = "Cargando..."
@@ -23,11 +23,9 @@ class Load_Screen(tools._State):
         surface.blit(self.rendered_text, self.text_rect)
 
         if (self.current_time - self.start_time) > 4000:
-            print("done2")
             self.done = True
 
 
     def get_event(self, event):
         if event.type == pg.KEYDOWN:
-            print("done")
             self.done = True
