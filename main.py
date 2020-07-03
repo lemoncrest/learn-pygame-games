@@ -1,3 +1,6 @@
+# python2 issues, div with float, not int
+from __future__ import division
+
 import os,sys
 import pygame
 

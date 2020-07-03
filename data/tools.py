@@ -3,9 +3,9 @@ import pygame as pg
 from data.constants import *
 
 """
-Control class for entire project. Contains the game loop, and contains
-the event_loop which passes events to States as needed. Logic for flipping
-states is also found here.
+Control class for entire project.
+Contains the game loop, and contains the event_loop which passes events to
+States as needed. Logic for flipping states is also found here.
 """
 class Control(object):
 
@@ -14,7 +14,7 @@ class Control(object):
         self.done = False
         self.clock = pg.time.Clock()
         self.caption = caption
-        self.fps = 60
+        self.fps = FPS
         self.show_fps = True
         self.current_time = 0.0
         self.keys = pg.key.get_pressed()

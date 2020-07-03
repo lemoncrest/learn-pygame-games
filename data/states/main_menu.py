@@ -4,6 +4,7 @@ from data import setup, tools
 from data.constants import *
 
 class Menu(tools._State):
+    
     def __init__(self):
         tools._State.__init__(self)
         self.refresh = True
@@ -57,8 +58,5 @@ class Menu(tools._State):
             elif event.key == pygame.K_DOWN or event.key == ord('s'):
                 self.menuY = self.lastMenuY if self.menuY==self.firstMenuY else self.firstMenuY
                 self.refresh = True
-
-        # release key q for exit
-        elif event.type == pygame.KEYUP:
-            if event.key == ord('q'): #exit
+            elif event.key == pygame.K_RETURN or event.key == ord('q'): #exit
                 self.done = True
