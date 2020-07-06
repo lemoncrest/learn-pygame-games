@@ -12,7 +12,7 @@ class Load_Screen(tools._State):
         self.surface = pg.Surface(SCREEN_SIZE)
         self.rect = self.surface.get_rect()
         text = "Cargando..."
-        self.font = pg.font.Font(setup.FONTS['Fixedsys500c'], 15)
+        self.font = pg.font.Font(setup.FONTS['Fixedsys500c'], 40)
         self.rendered_text = self.font.render(text, 1, BLACK)
         self.text_rect = self.rendered_text.get_rect()
         self.text_rect.center = self.rect.center

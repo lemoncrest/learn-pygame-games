@@ -129,6 +129,9 @@ def load_all_music(directory, accept=('.wav', '.mp3', '.ogg', '.mdi')):
 def load_all_fonts(directory, accept=('.ttf')):
     return load_all_music(directory, accept)
 
+def load_all_resources(directory, accept=('.json')):
+    return load_all_music(directory, accept)
+
 
 def load_all_sfx(directory, accept=('.wav','.mpe','.ogg','.mdi')):
     effects = {}

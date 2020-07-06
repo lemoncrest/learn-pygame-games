@@ -2,7 +2,7 @@ import pygame as pg
 from data import setup, tools
 from data.constants import *
 from data.components import mario, collider
-
+import json
 import copy
 
 """
@@ -49,61 +49,39 @@ class First_Level(tools._State):
                                            self.ground_rect4)
 
     def setup_pipes(self):
-        self.pipe1 = collider.Collider(1202, 452, 83, 82)
-        self.pipe2 = collider.Collider(1631, 409, 83, 140)
-        self.pipe3 = collider.Collider(1973, 366, 83, 170)
-        self.pipe4 = collider.Collider(2445, 366, 83, 170)
-        self.pipe5 = collider.Collider(6989, 452, 83, 82)
-        self.pipe6 = collider.Collider(7675, 452, 83, 82)
+        pipes_path = setup.MAP['pipes']
 
-        self.pipe_group = pg.sprite.Group(self.pipe1, self.pipe2,
-                                          self.pipe3, self.pipe4,
-                                          self.pipe5, self.pipe6)
+        with open(pipes_path) as json_file:
+
+            collinders = json.load(json_file)
+
+            self.pipe_group = pg.sprite.Group()
+
+            for col in collinders:
+                x = col["x"]
+                y = col["y"]
+                width = col["width"]
+                height = col["height"]
+                element = collider.Collider(x, y, width, height)
+                self.pipe_group.add(element)
 
     def setup_steps(self):
-        self.step1 = collider.Collider(5745, 495, 40, 44)
-        self.step2 = collider.Collider(5788, 452, 40, 44)
-        self.step3 = collider.Collider(5831, 409, 40, 44)
-        self.step4 = collider.Collider(5874, 366, 40, 176)
-        self.step5 = collider.Collider(6001, 366, 40, 176)
-        self.step6 = collider.Collider(6044, 408, 40, 40)
-        self.step7 = collider.Collider(6087, 452, 40, 40)
-        self.step8 = collider.Collider(6130, 495, 40, 40)
-        self.step9 = collider.Collider(6345, 495, 40, 40)
-        self.step10 = collider.Collider(6388, 452, 40, 40)
-        self.step11 = collider.Collider(6431, 409, 40, 40)
-        self.step12 = collider.Collider(6474, 366, 40, 40)
-        self.step13 = collider.Collider(6517, 366, 40, 176)
-        self.step14 = collider.Collider(6644, 366, 40, 176)
-        self.step15 = collider.Collider(6687, 408, 40, 40)
-        self.step16 = collider.Collider(6728, 452, 40, 40)
-        self.step17 = collider.Collider(6771, 495, 40, 40)
-        self.step18 = collider.Collider(7760, 495, 40, 40)
-        self.step19 = collider.Collider(7803, 452, 40, 40)
-        self.step20 = collider.Collider(7845, 409, 40, 40)
-        self.step21 = collider.Collider(7888, 366, 40, 40)
-        self.step22 = collider.Collider(7931, 323, 40, 40)
-        self.step23 = collider.Collider(7974, 280, 40, 40)
-        self.step24 = collider.Collider(8017, 237, 40, 40)
-        self.step25 = collider.Collider(8060, 194, 40, 40)
-        self.step26 = collider.Collider(8103, 194, 40, 360)
-        self.step27 = collider.Collider(8488, 495, 40, 40)
 
-        self.step_group = pg.sprite.Group(
-            self.step1, self.step2,
-            self.step3, self.step4,
-            self.step5, self.step6,
-            self.step7, self.step8,
-            self.step9, self.step10,
-            self.step11, self.step12,
-            self.step13, self.step14,
-            self.step15, self.step16,
-            self.step17, self.step18,
-            self.step19, self.step20,
-            self.step21, self.step22,
-            self.step23, self.step24,
-            self.step25, self.step26,
-            self.step27)
+        steps_path = setup.MAP['steps']
+
+        with open(steps_path) as json_file:
+
+            collinders = json.load(json_file)
+
+            self.step_group = pg.sprite.Group()
+
+            for col in collinders:
+                x = col["x"]
+                y = col["y"]
+                width = col["width"]
+                height = col["height"]
+                element = collider.Collider(x, y, width, height)
+                self.step_group.add(element)
 
     def camera(self):
         if self.mario.rect.right > SCREEN_WIDTH / 3:
@@ -159,9 +137,6 @@ class First_Level(tools._State):
 
         if self.mario.rect.x < 5:
             self.mario.rect.x = 5
-
-
-
 
 
     """
